@@ -11,12 +11,12 @@
 
 set -e
 
-mkdir -p out_dir
+mkdir -p tractmeasures
 
 export SINGULARITYENV_LC_ALL=C.UTF-8
 export SINGULARITYENV_LANG=C.UTF-8
 
 singularity exec -e docker://gamorosino/mpat-tractography:1.0 python3 run_mpat.py
 
-[ -z "$(ls -A out_dir)" ] && echo "no output produced" && exit 1
+[ -z "$(ls -A tractmeasures)" ] && echo "no output produced in tractmeasures/" && exit 1
 exit 0
