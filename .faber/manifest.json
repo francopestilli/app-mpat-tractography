@@ -1,0 +1,81 @@
+{
+  "name": "app-mpat-tractography",
+  "github": "gamorosino/app-mpat-tractography",
+  "github_branch": "main",
+  "desc": "MPAT: Markov probabilistic absorbing tractography \u2013 computes white-matter bundles as exact expectations over infinitely many streamlines using an absorbing Markov chain formulation on top of pyAFQ.",
+  "config": {
+    "dwi": {
+      "type": "input",
+      "file_id": "dwi",
+      "input_id": "dwi"
+    },
+    "bvecs": {
+      "type": "input",
+      "file_id": "bvecs",
+      "input_id": "dwi"
+    },
+    "bvals": {
+      "type": "input",
+      "file_id": "bvals",
+      "input_id": "dwi"
+    },
+    "t1": {
+      "type": "input",
+      "file_id": "t1",
+      "input_id": "t1w"
+    },
+    "n_proc": {
+      "id": "n_proc",
+      "type": "number",
+      "placeholder": "",
+      "advanced": false,
+      "desc": "Number of parallel processors to use",
+      "default": 4
+    },
+    "max_mem": {
+      "id": "max_mem",
+      "type": "number",
+      "placeholder": "",
+      "advanced": false,
+      "desc": "Maximum memory in GB",
+      "default": 16
+    },
+    "bundles": {
+      "id": "bundles",
+      "type": "string",
+      "placeholder": "",
+      "advanced": true,
+      "desc": "Comma-separated list of AFQ bundle names to run (empty = all bundles)",
+      "default": ""
+    }
+  },
+  "inputs": [
+    {
+      "id": "dwi",
+      "datatype": "neuro/dwi",
+      "datatype_tags": [],
+      "optional": false,
+      "multi": false,
+      "advanced": false
+    },
+    {
+      "id": "t1w",
+      "datatype": "neuro/anat/t1w",
+      "datatype_tags": [],
+      "optional": false,
+      "multi": false,
+      "advanced": false
+    }
+  ],
+  "outputs": [
+    {
+      "id": "tractmeasures",
+      "desc": "Per-bundle tractometry metrics (density, AFD, length, volume, cross-sectional area) and per-bundle maps produced by MPAT.",
+      "datatype": "neuro/tractmeasures",
+      "datatype_tags": [
+        "mpat"
+      ],
+      "archive": true
+    }
+  ]
+}

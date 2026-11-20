@@ -1,0 +1,9 @@
+{
+  "dwi": "dwi.nii.gz",
+  "bvecs": "bvecs.bvecs",
+  "bvals": "bvals.bvals",
+  "t1": "t1.nii.gz",
+  "n_proc": 4,
+  "max_mem": 16,
+  "bundles": ""
+}
